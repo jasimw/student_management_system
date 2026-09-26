@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Update Student</h1>
+
+    <form action="/update/{{ student[0] }}" method="POST">
+
+        <input type="text"
+               name="name"
+               value="{{ student[1] }}"
+               placeholder="Student Name"
+               required>
+
+        <input type="text"
+               name="register_no"
+               value="{{ student[2] }}"
+               placeholder="Register Number"
+               required>
+
+        <select name="department" required>
+    <option value="">Select Department</option>
+    <option value="CSE" {% if student[3] == "CSE" %}selected{% endif %}>CSE</option>
+    <option value="ECE" {% if student[3] == "ECE" %}selected{% endif %}>ECE</option>
+    <option value="EEE" {% if student[3] == "EEE" %}selected{% endif %}>EEE</option>
+    <option value="IT" {% if student[3] == "IT" %}selected{% endif %}>IT</option>
+    <option value="MECH" {% if student[3] == "MECH" %}selected{% endif %}>MECH</option>
+</select>
+
+        <select name="year" required>
+    <option value="">Select Year</option>
+    <option value="1st Year" {% if student[4] == "1st Year" %}selected{% endif %}>1st Year</option>
+    <option value="2nd Year" {% if student[4] == "2nd Year" %}selected{% endif %}>2nd Year</option>
+    <option value="3rd Year" {% if student[4] == "3rd Year" %}selected{% endif %}>3rd Year</option>
+    <option value="4th Year" {% if student[4] == "4th Year" %}selected{% endif %}>4th Year</option>
+</select>
+
+        <button type="submit">Update Student</button>
+
+    </form>
+
+    <a href="/students">
+        <button type="button">Back to Students</button>
+    </a>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Student Management System</h1>
+    <p class=""subtitle">Manage student records easily</p>
+    <div class="dashboard-card">
+    <h2>Total Students</h2>
+    <p>{{ total_students }}</p>
+</div>
+<div class="dashboard-actions">
+
+    <a href="#add">
+        <button>Add Student</button>
+    </a>
+
+    <a href="#search">
+        <button>Search Student</button>
+    </a>
+
+    <a href="/students">
+        <button>View All Students</button>
+    </a>
+    <a href="/logout">
+    <button>Logout</button>
+</a>
+
+</div>
+
+    <h2 id="add">Add Student</h2>
+
+    <form action="/add_student" method="POST">
+
+        <label>Student Name:</label>
+        <input type="text" name="name" required>
+
+        <br><br>
+
+        <label>Register Number:</label>
+        <input type="text" name="register_no" required>
+
+        <br><br>
+
+        <label>Department:</label>
+        <select name="department" required>
+    <option value="">Select Department</option>
+    <option value="CSE">CSE</option>
+    <option value="ECE">ECE</option>
+    <option value="EEE">EEE</option>
+    <option value="IT">IT</option>
+    <option value="MECH">MECH</option>
+</select>
+
+        <br><br>
+
+        <label>Year:</label>
+       <select name="year" required>
+    <option value="">Select Year</option>
+    <option value="1st Year">1st Year</option>
+    <option value="2nd Year">2nd Year</option>
+    <option value="3rd Year">3rd Year</option>
+    <option value="4th Year">4th Year</option>
+</select>
+
+        <br><br>
+
+        <button type="submit">Save Student</button>
+
+    </form>
+
+    <br><br>
+
+    <a href="/students">
+        <button type="button">View Students</button>
+    </a>
+
+    <br><br>
+
+    <h2 id="search">Search Student</h2>
+<form action="/search" method="GET">
+
+    <input type="text"
+           name="name"
+           placeholder="Enter student name">
+
+    <select name="department">
+        <option value="">All Departments</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="IT">IT</option>
+        <option value="MECH">MECH</option>
+    </select>
+
+    <select name="year">
+        <option value="">All Years</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+    </select>
+
+    <button type="submit">Search</button>
+
+</form>
+
+</body>
+</html>

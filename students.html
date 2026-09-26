@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Student List</h1>
+
+    <div class="table-container">
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Register Number</th>
+                <th>Department</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+
+            {% for student in students %}
+
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+
+                <td>
+    <a class="update-btn"
+       href="/update/{{ student[0] }}">
+        Update
+    </a>
+
+    <a class="delete-btn"
+       href="/delete/{{ student[0] }}"
+       onclick="return confirm('Are you sure you want to delete this student?');">
+        Delete
+    </a>
+</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <a href="/">
+        <button>Back to Home</button>
+    </a>
+
+</body>
+</html>
