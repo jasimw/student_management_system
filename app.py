@@ -1,14 +1,19 @@
 from flask import Flask, render_template, request, redirect,session
 import mysql.connector
+import os
 
 app = Flask(__name__, template_folder="templates")
 app.secret_key = "student_management_secret"
 
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Emc@sql",
-    database="student_management"
+    host=os.getenv("DB_HOST"),
+    port=int(os.getenv("DB_PORT", "4000")),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME"),
+    ssl_ca="/etc/ssl/certs/ca-certificates.crt",
+    ssl_verify_cert=True,
+    ssl_verify_identity=True
 )
 @app.route("/login", methods=["GET", "POST"])
 def login():
