@@ -233,3 +233,81 @@ background-color: transparent;
 width: 100%;
 margin-top: 10px;
 }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 24px;
+        padding: 18px 10px;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-top: -10px;
+    }
+
+    form {
+        width: 92%;
+        max-width: 420px;
+        padding: 20px;
+    }
+
+    .dashboard-card {
+        width: 85%;
+        max-width: 280px;
+        padding: 20px;
+    }
+
+    .dashboard-card p {
+        font-size: 38px;
+    }
+
+    .dashboard-actions {
+        width: 92%;
+        gap: 12px;
+    }
+
+    .dashboard-actions button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .table-container {
+        width: 95%;
+        margin: 20px auto;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .login-container {
+        width: 92%;
+        max-width: 400px;
+        padding: 25px 20px;
+    }
+
+    .login-container h1 {
+        font-size: 22px;
+    }
+
+    .update-btn,
+    .delete-btn {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+}
